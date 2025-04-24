@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharazi Agricultural Spray Center</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header with watermark -->
+    <header>
+        <div class="logo-watermark"></div>
+        <div class="header-content">
+            <div class="logo">
+                <img src="logo shop.jpeg" alt="Sharazi Agricultural Spray Center Logo">
+                <h1>SHARAZI AGRICULTURAL SPRAY CENTER</h1>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Search for products...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt"></i> Sahiwal, Ada Bahader Shah</p>
+                <p><i class="fas fa-phone"></i> 0304-0373881</p>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#sprays">Agriculture Sprays</a></li>
+                <li><a href="#fertilizers">Fertilizers</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="admin.html" class="admin-btn">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>A GOOD PLACE TO BUY AGRICULTURE SPRAYS</h2>
+            <p>We provide quality agricultural products in Pakistan (no free delivery)</p>
+            <button class="shop-now">SHOP NOW</button>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="sprays">
+        <h2>AGRICULTURE SPRAYS</h2>
+        <div class="product-carousel">
+            <button class="carousel-btn left-btn"><i class="fas fa-chevron-left"></i></button>
+            <div class="product-container" id="spray-container">
+                <!-- Products will be loaded from JSON -->
+            </div>
+            <button class="carousel-btn right-btn"><i class="fas fa-chevron-right"></i></button>
+            <title>Payment Options</title>
+            <style>
+                .modal {
+                    display: none;
+                    position: fixed;
+                    z-index: 1;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0,0,0,0.4);
+                }
+                .modal-content {
+                    background-color: #fefefe;
+                    margin: 15% auto;
+                    padding: 20px;
+                    border: 1px solid #888;
+                    width: 300px;
+                }
+                .payment-option {
+                    padding: 10px;
+                    margin: 5px 0;
+                    border: 1px solid #ddd;
+                    cursor: pointer;
+                }
+                .payment-option:hover {
+                    background-color: #f5f5f5;
+                }
+            </style>
+        </head>
+        <body>
+        
+        <button id="addToCart">Add to Cart</button>
+        
+        <div id="paymentModal" class="modal">
+            <div class="modal-content">
+                <h2>Select Payment Method</h2>
+                <div class="payment-option" onclick="selectPayment('jazzcash')">JazzCash</div>
+                <div class="payment-option" onclick="selectPayment('easypaisa')">EasyPaisa</div>
+                <div class="payment-option" onclick="selectPayment('paypal')">PayPal</div>
+            </div>
+        </div>
+        
+        <script>
+            const cartBtn = document.getElementById('addToCart');
+            const modal = document.getElementById('paymentModal');
+        
+            cartBtn.addEventListener('click', function() {
+                modal.style.display = 'block';
+            });
+        
+            window.addEventListener('click', function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        
+            function selectPayment(method) {
+                alert(`Selected payment method: ${method}`);
+                modal.style.display = 'none';
+                // Add your payment processing logic here
+            }
+        </script>
+        </div>
+    </section>
+
+    <section class="products" id="fertilizers">
+        <h2>FERTILIZERS</h2>
+        <div class="product-carousel">
+            <button class="carousel-btn left-btn"><i class="fas fa-chevron-left"></i></button>
+            <div class="product-container" id="fertilizer-container">
+                <!-- Products will be loaded from JSON -->
+            </div>
+            <button class="carousel-btn right-btn"><i class="fas fa-chevron-right"></i></button>
+            
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2>About Sharazi Agricultural Spray Center</h2>
+        <p>Owner: Syed Mutbassam Raiz Shah</p>
+        <p>Location: Sahiwal, Ada Bahader Shah</p>
+        <p>We are committed to providing quality agricultural products to farmers across Pakistan.</p>
+        
+        <div class="social-media">
+            <h3>Follow Us:</h3>
+            <a href="https://www.youtube.com/@cropexpert1740" target="_blank"><i class="fab fa-youtube"></i> YouTube: @cropexpert1740</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <p><i class="fas fa-phone"></i> 0304-0373881</p>
+                <p><i class="fas fa-envelope"></i> smutbassam@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Sahiwal, Ada Bahader Shah, Pakistan</p>
+            </div>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="tel" placeholder="Your Phone">
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#sprays">Agriculture Sprays</a></li>
+                    <li><a href="#fertilizers">Fertilizers</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#admin.html">ADMIN PANNAL</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Sahiwal, Ada Bahader Shah</p>
+                <p><i class="fas fa-phone"></i> 0304-0373881</p>
+                <p><i class="fas fa-envelope"></i> smutbassam@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <a href="https://www.youtube.com/@cropexpert1740" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+            </div>
+            <h1>send us a massage if you want to bought any spray or anyfertlizer </h1>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Sharazi Agricultural Spray Center. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

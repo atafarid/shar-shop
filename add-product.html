@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product - Sharazi Agricultural Spray Center</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Fixed Header (same as index.html) -->
+    <header>
+        <div class="header-top">
+            <div class="logo-container">
+                <img src="logo.png" alt="Sharazi Agricultural Spray Center Logo" class="logo">
+                <h1>SHARAZI AGRICULTURAL SPRAY CENTER</h1>
+            </div>
+            <div class="search-container">
+                <input type="text" placeholder="Search products...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="contact-info">
+                <p><i class="fas fa-phone"></i> 0304-0373881</p>
+                <p><i class="fas fa-envelope"></i> smutbassam@gmail.com</p>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#fertilizers">Fertilizers</a></li>
+                <li><a href="index.html#sprays">Agriculture Sprays</a></li>
+                <li><a href="index.html#about">About Us</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="products.html">All Products</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Add Product Form -->
+    <main class="add-product-main">
+        <div class="auth-container">
+            <h2>Add New Product</h2>
+            <div id="password-section">
+                <input type="password" id="admin-password" placeholder="Enter admin password">
+                <button onclick="verifyPassword()">Submit</button>
+                <p class="forgot-password" onclick="forgotPassword()">Forgot Password?</p>
+            </div>
+            
+            <div id="product-form" style="display: none;">
+                <form id="new-product-form">
+                    <div class="form-group">
+                        <label for="product-name">Product Name:</label>
+                        <input type="text" id="product-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-category">Category:</label>
+                        <select id="product-category" required>
+                            <option value="">Select Category</option>
+                            <option value="urea">Urea Fertilizer</option>
+                            <option value="dap">DAP Fertilizer</option>
+                            <option value="npk">NPK Fertilizer</option>
+                            <option value="insecticides">Insecticides</option>
+                            <option value="herbicides">Herbicides</option>
+                            <option value="fungicides">Fungicides</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-price">Price (PKR):</label>
+                        <input type="number" id="product-price" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-description">Description:</label>
+                        <textarea id="product-description" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-image">Image URL:</label>
+                        <input type="text" id="product-image" placeholder="https://example.com/image.jpg">
+                    </div>
+                    <button type="submit">Add Product</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Fixed Footer (same as index.html) -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> SAHIWAL, ADA BAHADER SHAH</p>
+                <p><i class="fas fa-phone"></i> 0304-0373881</p>
+                <p><i class="fas fa-envelope"></i> smutbassam@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#fertilizers">Fertilizers</a></li>
+                    <li><a href="index.html#sprays">Agriculture Sprays</a></li>
+                    <li><a href="products.html">All Products</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Business Hours</h3>
+                <p>Monday - Saturday: 9:00 AM - 8:00 PM</p>
+                <p>Sunday: Closed</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Sharazi Agricultural Spray Center. All Rights Reserved.</p>
+            <div class="watermark">
+                <img src="logo.png" alt="Watermark Logo">
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

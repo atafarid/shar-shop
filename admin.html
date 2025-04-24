@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Add New Product</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .admin-panel {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .password-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .forgot-password {
+            text-align: right;
+            margin-top: 10px;
+        }
+        .forgot-password a {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+        .success-message {
+            color: green;
+            margin-top: 10px;
+            display: none;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-panel">
+        <h1>Add New Product</h1>
+        
+        <div class="password-section">
+            <div class="form-group">
+                <label for="password">Enter Admin Password:</label>
+                <input type="password" id="password" placeholder="Enter password to access admin panel">
+            </div>
+            <div class="forgot-password">
+                <a href="#" id="forgot-password">Forgot Password?</a>
+            </div>
+            <button id="verify-password">Verify Password</button>
+            <div id="password-error" class="error-message">Incorrect password. Please try again.</div>
+        </div>
+        
+        <div id="product-form" style="display: none;">
+            <div class="form-group">
+                <label for="product-type">Product Type:</label>
+                <select id="product-type">
+                    <option value="fertilizer">Fertilizer</option>
+                    <option value="spray">Spray</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="product-name">Product Name:</label>
+                <input type="text" id="product-name" placeholder="Enter product name">
+            </div>
+            
+            <div class="form-group">
+                <label for="product-price">Product Price:</label>
+                <input type="number" id="product-price" placeholder="Enter product price">
+            </div>
+            
+            <div class="form-group">
+                <label for="product-image">Product Image:</label>
+                <input type="file" id="product-image" accept="image/*">
+            </div>
+            
+            <button id="add-product">Add Product</button>
+            <div id="success-message" class="success-message">Product added successfully!</div>
+            <div id="form-error" class="error-message">Please fill all fields correctly.</div>
+        </div>
+    </div>
+
+    <script>
+        const correctPassword = "mut34@^&ty76#$)()__";
+        const recoveryPhone = "03040373881";
+        const recoveryEmail = "smutbassam@gmail.com";
+        
+        document.getElementById('verify-password').addEventListener('click', function() {
+            const enteredPassword = document.getElementById('password').value;
+            
+            if (enteredPassword === correctPassword) {
+                document.getElementById('product-form').style.display = 'block';
+                document.getElementById('password-error').style.display = 'none';
+            } else {
+                document.getElementById('password-error').style.display = 'block';
+            }
+        });
+        
+        document.getElementById('forgot-password').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert(`Password recovery information has been sent to:\nPhone: ${recoveryPhone}\nEmail: ${recoveryEmail}`);
+            // In a real implementation, you would actually send the SMS/email here
+        });
+        
+        document.getElementById('add-product').addEventListener('click', function() {
+            const productType = document.getElementById('product-type').value;
+            const productName = document.getElementById('product-name').value;
+            const productPrice = document.getElementById('product-price').value;
+            const productImage = document.getElementById('product-image').files[0];
+            
+            if (!productName || !productPrice || !productImage) {
+                document.getElementById('form-error').style.display = 'block';
+                document.getElementById('success-message').style.display = 'none';
+                return;
+            }
+            
+            // Create a FileReader to read the image file
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const imageDataUrl = e.target.result;
+                
+                // Create a new product object
+                const newProduct = {
+                    type: productType,
+                    name: productName,
+                    price: productPrice,
+                    image: imageDataUrl
+                };
+                
+                // In a real implementation, you would save this to script.js or a database
+                // For this demo, we'll just show a success message
+                console.log('New product to be added:', newProduct);
+                
+                document.getElementById('form-error').style.display = 'none';
+                document.getElementById('success-message').style.display = 'block';
+                
+                // Reset form
+                document.getElementById('product-name').value = '';
+                document.getElementById('product-price').value = '';
+                document.getElementById('product-image').value = '';
+                
+                // Here you would typically make an AJAX call to a server-side script
+                // that would append this product to your script.js file
+                // Or use localStorage for a client-side only solution
+            };
+            
+            reader.readAsDataURL(productImage);
+        });
+    </script>
+</body>
+</html>
